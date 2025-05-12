@@ -18,7 +18,8 @@ git clone https://github.com/yourusername/todo-app.git
 cd todo-app
 npm install
 npm run dev
-
+```
 ## 🤝 Contributors
  ### Abuzar RaziQ
  ### Munib Ahmed
+
