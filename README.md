@@ -14,7 +14,7 @@ A simple Todo App built using React to manage daily tasks.
 
 ## 🧑‍💻 Getting Started
 ```bash
-git clone https://github.com/yourusername/todo-app.git
+git clone https://github.com/abuzarraziqgithub/todo-app.git
 cd todo-app
 npm install
 npm run dev
