@@ -1,11 +1,11 @@
 # 📝 React Todo App
 
-A simple Todo App built using React to manage daily tasks.
+A simple and responsive Todo App built using React to manage daily tasks.
 
 ## 🚀 Features
 - Add todos
 - Display todo list
-- (Coming soon) Delete & complete todos
+- Delete & complete todos
 
 ## 🛠️ Tech Stack
 - React (Vite)
@@ -20,6 +20,6 @@ npm install
 npm run dev
 ```
 ## 🤝 Contributors
- ### Abuzar RaziQ
+ ### UI built by Abuzar RaziQ  
  ### Munib Ahmed
 
