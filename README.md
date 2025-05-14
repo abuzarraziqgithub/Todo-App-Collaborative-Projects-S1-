@@ -5,10 +5,12 @@ A simple and responsive Todo App built using React to manage daily tasks.
 ## 🚀 Features
 - Add todos
 - Display todo list
-- Delete & complete todos
+- Delete & complete todosm
+- All ,Active and Completed Buttons
 
 ## 🛠️ Tech Stack
 - React (Vite)
+- Custom CSS
 - JavaScript
 - GitHub for version control
 
