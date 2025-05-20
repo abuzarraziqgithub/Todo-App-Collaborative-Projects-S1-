@@ -9,7 +9,7 @@ function App() {
       <div className="container">
         <div className="todoBox">
           <Heading />
-          <InputAddBtn />
+          <InputAddBtn handleInput="" />
           <ExtraButtons />
           {/* This is just a dummy list and you know it 😊 */}
           <List />
