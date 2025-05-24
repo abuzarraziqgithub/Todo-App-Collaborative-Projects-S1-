@@ -1,18 +1,48 @@
+import { useState } from "react";
 import "./App.css";
-import Heading from "./components/Heading.jsx";
-import InputAddBtn from "./components/InputAddTask.jsx";
-import ExtraButtons from "./components/ExtraButtons.jsx";
-import List from "./components/List.jsx";
 function App() {
+  const [todoInput, setTodoInput] = useState("");
+  const [tasks, setTasks] = useState([]);
+  function addTask() {
+    if (todoInput.trim() !== "") {
+      setTasks([...tasks, todoInput]);
+      setTodoInput("");
+    }
+  }
   return (
     <>
       <div className="container">
         <div className="todoBox">
-          <Heading />
-          <InputAddBtn handleInput="" />
-          <ExtraButtons />
+          <div className="heading">
+            <h1>TodoMatic</h1>
+            <p>What needs to be done?</p>
+          </div>
+          <div className="input_btn">
+            <input
+              type="text"
+              placeholder="Enter a task"
+              id="taskInput"
+              value={todoInput}
+              onChange={(e) => setTodoInput(e.target.value)}
+            />
+            <button id="addBtn" onClick={addTask}>
+              +
+            </button>
+          </div>
+
+          <div className="extraButtons">
+            <button id="allBtn">All</button>
+            <button id="activeBtn">Active</button>
+            <button id="completedBtn">Completed</button>
+          </div>
           {/* This is just a dummy list and you know it 😊 */}
-          <List />
+          <div className="listData">
+            <ul>
+              {tasks.map((task, index) => {
+                return <li key={index}>{task}</li>;
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </>

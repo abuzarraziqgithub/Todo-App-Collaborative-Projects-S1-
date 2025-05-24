@@ -134,7 +134,7 @@
 /* List */
 .listData {
   width: 80%;
-  overflow-y: scroll;
+  overflow: scroll;
   scroll-behavior: smooth;
   margin-bottom: 10%;
   scrollbar-width: none;
