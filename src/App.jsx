@@ -1,50 +1,47 @@
 import { useState } from "react";
 import "./App.css";
+import Container from "./components/Container";
+import Input from "./components/Input";
+import Buttons from "./components/Buttons";
+import List from "./components/List";
+
 function App() {
   const [todoInput, setTodoInput] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [checkedItems, setCheckedItems] = useState({});
+
   function addTask() {
     if (todoInput.trim() !== "") {
       setTasks([...tasks, todoInput]);
       setTodoInput("");
     }
   }
+
+  // Hanlder Function for handling checkbox
+  function handleCheck(index) {
+    console.log(checkedItems);
+    setCheckedItems((prevChecked) => ({
+      ...prevChecked,
+      [index]: !prevChecked[index],
+    }));
+  }
+
   return (
     <>
-      <div className="container">
-        <div className="todoBox">
-          <div className="heading">
-            <h1>TodoMatic</h1>
-            <p>What needs to be done?</p>
-          </div>
-          <div className="input_btn">
-            <input
-              type="text"
-              placeholder="Enter a task"
-              id="taskInput"
-              value={todoInput}
-              onChange={(e) => setTodoInput(e.target.value)}
-            />
-            <button id="addBtn" onClick={addTask}>
-              +
-            </button>
-          </div>
-
-          <div className="extraButtons">
-            <button id="allBtn">All</button>
-            <button id="activeBtn">Active</button>
-            <button id="completedBtn">Completed</button>
-          </div>
-          {/* This is just a dummy list and you know it 😊 */}
-          <div className="listData">
-            <ul>
-              {tasks.map((task, index) => {
-                return <li key={index}>{task}</li>;
-              })}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Container>
+        <Input
+          todoInput={todoInput}
+          setTodoInput={setTodoInput}
+          addTask={addTask}
+        />
+        <Buttons />
+        <List
+          tasks={tasks}
+          handleCheck={handleCheck}
+          checkedItems={checkedItems}
+          setCheckedItems={setCheckedItems}
+        />
+      </Container>
     </>
   );
 }

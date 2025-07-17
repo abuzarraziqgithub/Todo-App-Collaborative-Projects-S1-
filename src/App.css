@@ -152,6 +152,9 @@
   list-style: none;
   background-color: #222831;
   padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: column;
   border-radius: 1px;
   font-size: 17px;
   height: 100px;
