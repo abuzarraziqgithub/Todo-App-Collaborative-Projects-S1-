@@ -65,11 +65,20 @@
   cursor: pointer;
   transition: all 150ms ease-in-out;
 }
+
+/* Active state for filter buttons */
+.extraButtons button.active {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
 #allBtn {
   background-color: #fff4b7;
   color: #393e46;
 }
-#allBtn:hover {
+#allBtn:hover,
+#allBtn.active {
   outline: 1px solid orangered;
 }
 
@@ -77,7 +86,8 @@
   background-color: #003161;
   color: #dfd0b8;
 }
-#activeBtn:hover {
+#activeBtn:hover,
+#activeBtn.active {
   outline: 1px solid orangered;
   color: aliceblue;
 }
@@ -85,7 +95,8 @@
   background-color: #78a083;
   color: #fff4b7;
 }
-#completedBtn:hover {
+#completedBtn:hover,
+#completedBtn.active {
   outline: 1px solid orangered;
   color: aliceblue;
 }
@@ -129,6 +140,7 @@
 #addBtn:hover {
   background-color: #dfd0b8;
   border: 0.7px solid yellow;
+  width: 10%;
 }
 
 /* List */
@@ -151,7 +163,7 @@
 .listData li {
   list-style: none;
   background-color: #222831;
-  padding: 15px;
+  padding: 19px;
   display: flex;
   justify-content: space-between;
   align-items: column;
@@ -160,6 +172,227 @@
   height: 100px;
   font-weight: 400;
   color: #e2f1e7;
+  transition: all 200ms ease-in;
+}
+
+/* Style the list container */
+.listData ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style each list item */
+.listData li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  gap: 3%;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+/* Task actions container */
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Edit mode styles */
+.edit-mode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Button styles */
+.edit-btn,
+.delete-btn,
+.save-btn,
+.cancel-btn {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #138496;
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+  transform: scale(1.05);
+}
+
+.listData li:hover {
+  background: #f1f3f5;
+  border-color: #dee2e6;
+  color: #495057;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+/* Style the h4 element */
+.listData li h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #dee2e6;
+  flex-grow: 1;
+  transition: all 0.3s ease;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.listData li #delete-inputBtn {
+  background-color: #e14434;
+  cursor: pointer;
+  width: 1.5rem;
+  border: none;
+  padding: 2px;
+}
+
+/* Hide the default checkbox */
+.listData li #checkbox-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+/* Hover effect on checkbox */
+.listData li #checkbox-input:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* Checked state */
+.listData li #checkbox-input:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Focus state for accessibility */
+.listData li #checkbox-input:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Enhance the completed task styling */
+.listData li:has(#checkbox-input:checked) {
+  background: #f8f9fa;
+  opacity: 0.8;
+}
+
+.listData li:has(#checkbox-input:checked) h4 {
+  color: #6c757d;
+}
+
+/* Fallback for browsers that don't support :has() */
+@supports not selector(:has(*)) {
+  /* You can add JavaScript to toggle a class like 'completed' on the li element */
+  .listData li.completed {
+    background: #6c757d;
+    opacity: 0.8;
+  }
+
+  .listData li.completed h4 {
+    color: #6c757d;
+  }
+}
+
+/* Alternative green theme (uncomment if you prefer) */
+
+.listData li #checkbox-input:checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.listData li #checkbox-input:hover {
+  border-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.1);
+}
+
+.listData li #checkbox-input:focus {
+  outline: 2px solid #28a745;
 }
 
 @media (max-width: 625px) {
