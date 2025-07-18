@@ -71,14 +71,16 @@ function App() {
 
   // Filter tasks based on current filter
   function getFilteredTasks() {
-    return tasks.map((task, index) => ({ task, index })).filter(({ index }) => {
-      if (filter === "active") {
-        return !checkedItems[index]; // Show unchecked tasks
-      } else if (filter === "completed") {
-        return checkedItems[index]; // Show checked tasks
-      }
-      return true; // Show all tasks
-    });
+    return tasks
+      .map((task, index) => ({ task, index }))
+      .filter(({ index }) => {
+        if (filter === "active") {
+          return !checkedItems[index]; // Show unchecked tasks
+        } else if (filter === "completed") {
+          return checkedItems[index]; // Show checked tasks
+        }
+        return true; // Show all tasks
+      });
   }
 
   // Handle filter change
@@ -94,10 +96,7 @@ function App() {
           setTodoInput={setTodoInput}
           addTask={addTask}
         />
-        <Buttons 
-          filter={filter}
-          handleFilterChange={handleFilterChange}
-        />
+        <Buttons filter={filter} handleFilterChange={handleFilterChange} />
         <List
           filteredTasks={getFilteredTasks()}
           handleCheck={handleCheck}
